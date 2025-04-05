@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - Tienda</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <h1>Panel Administrador</h1>
+  <div id="login">
+    <input type="password" id="password" placeholder="Contraseña de admin" />
+    <button onclick="login()">Entrar</button>
+  </div>
+
+  <div id="panel" style="display:none;">
+    <h2>Agregar Producto</h2>
+    <input type="text" id="nombre" placeholder="Nombre del producto" />
+    <input type="number" id="precio" placeholder="Precio" />
+    <input type="text" id="categoria" placeholder="Categoría" />
+    <input type="file" id="imagen" accept="image/*" />
+    <br><img id="preview" src="" width="100"/><br>
+    <button onclick="agregarProducto()">Agregar Producto</button>
+
+    <h2>Agregar Banner</h2>
+    <input type="file" id="banner" accept="image/*" />
+    <br><img id="banner-preview" src="" width="200"/><br>
+    <button onclick="agregarBanner()">Agregar Banner</button>
+
+    <h2>Personalizar Página</h2>
+    <input type="text" id="nombre-tienda" placeholder="Nombre de la tienda" />
+    <input type="color" id="color-fondo" />
+    <input type="color" id="color-texto" />
+    <button onclick="guardarPersonalizacion()">Guardar Personalización</button>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
