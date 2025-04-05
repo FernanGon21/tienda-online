@@ -240,3 +240,29 @@ window.onload = () => {
   cargarCategorias();
   mostrarProductos(cargarProductos());
 };
+
+function verificarAdmin() {
+  const clave = document.getElementById("clave-admin").value;
+  if (clave === "admin123") {
+    localStorage.setItem("esAdmin", "1");
+    document.getElementById("login-admin").style.display = "none";
+    mostrarAdmin();
+  } else {
+    alert("Contraseña incorrecta");
+  }
+}
+
+function mostrarAdmin() {
+  document.querySelectorAll(".solo-admin, #banners-admin").forEach(e => e.classList.remove("oculto-admin"));
+  aplicarPersonalizacion?.();
+}
+
+// Ocultar secciones administrativas si no es admin
+window.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("esAdmin") === "1") {
+    document.getElementById("login-admin").style.display = "none";
+    mostrarAdmin();
+  } else {
+    document.querySelectorAll(".solo-admin, #banners-admin").forEach(e => e.classList.add("oculto-admin"));
+  }
+});
