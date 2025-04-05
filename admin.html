@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrador</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <h1>Panel Administrador</h1>
+  <div id="login">
+    <input type="password" id="password" placeholder="Contraseña" />
+    <button onclick="login()">Entrar</button>
+  </div>
+  <div id="admin" style="display:none;">
+    <h2>Agregar / Editar Producto</h2>
+    <input type="hidden" id="edit-id" />
+    <input type="text" id="nombre" placeholder="Nombre" />
+    <input type="text" id="marca" placeholder="Marca" />
+    <input type="number" id="precio" placeholder="Precio" />
+    <input type="text" id="categoria" placeholder="Categoría" />
+    <input type="number" id="stock" placeholder="Stock" />
+    <input type="file" id="imagen" />
+    <img id="preview" width="100"/><br>
+    <button onclick="guardarProducto()">Guardar Producto</button>
+    <h2>Productos</h2>
+    <ul id="lista-productos"></ul>
+
+    <h2>Agregar Banner</h2>
+    <input type="file" id="banner" />
+    <img id="preview-banner" width="200"/><br>
+    <button onclick="guardarBanner()">Guardar Banner</button>
+
+    <h2>Personalizar Página</h2>
+    <input type="text" id="nombre-tienda" placeholder="Nombre tienda" />
+    <input type="color" id="color-fondo" />
+    <input type="color" id="color-texto" />
+    <select id="fuente">
+      <option value="Arial">Arial</option>
+      <option value="Verdana">Verdana</option>
+      <option value="Georgia">Georgia</option>
+    </select>
+    <button onclick="guardarPersonalizacion()">Guardar Estilo</button>
+  </div>
+  <script src="js/admin.js"></script>
+</body>
+</html>
