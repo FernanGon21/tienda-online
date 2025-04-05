@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cerveza Artesanal",
+    "precio": 1200,
+    "categoria": "Cerveza",
+    "imagen": "img/cerveza.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Vino Tinto",
+    "precio": 2500,
+    "categoria": "Vino",
+    "imagen": "img/vino.jpg"
+  }
+]
