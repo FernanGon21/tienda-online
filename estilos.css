@@ -1,0 +1,74 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+header {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+
+button {
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+input {
+  padding: 0.5em;
+  margin: 0.5em;
+  display: block;
+}
+
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin: 1em;
+}
+
+.producto {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 1em;
+  width: 200px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.oculto {
+  display: none;
+}
+
+.banners {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin: 1em;
+}
+.banners img {
+  max-height: 120px;
+  border-radius: 8px;
+}
+
+.login-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.login-content {
+  background: white;
+  padding: 2em;
+  border-radius: 1em;
+}
+.oculto-admin {
+  display: none !important;
+}
