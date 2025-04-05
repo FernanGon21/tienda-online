@@ -2,28 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Tienda con WhatsApp</title>
+  <title>Tienda con Admin</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
   <header>
     <h1>Tienda Online</h1>
-    <button onclick="mostrarCarrito()">Ver Carrito (<span id="cantidad-carrito">0</span>)</button>
+    <button onclick="mostrarCarrito()">Carrito (<span id="cantidad-carrito">0</span>)</button>
+    <button onclick="mostrarRegistro()">Registro</button>
+    <button onclick="iniciarSesionAdmin()">Admin</button>
   </header>
 
-  <main id="productos">
-    <div class="producto">
-      <img src="https://via.placeholder.com/150" alt="Producto 1">
-      <h3>Producto 1</h3>
-      <p>$100</p>
-      <button onclick="agregarAlCarrito('Producto 1', 100)">Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <img src="https://via.placeholder.com/150" alt="Producto 2">
-      <h3>Producto 2</h3>
-      <p>$150</p>
-      <button onclick="agregarAlCarrito('Producto 2', 150)">Agregar al carrito</button>
-    </div>
+  <main id="productos" class="productos">
+    <!-- Productos aparecerán aquí dinámicamente -->
   </main>
 
   <section id="carrito" class="oculto">
@@ -38,6 +29,22 @@
 
     <button onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
     <button onclick="vaciarCarrito()">Vaciar carrito</button>
+  </section>
+
+  <section id="admin-panel" class="oculto">
+    <h2>Panel de Administrador</h2>
+    <input type="text" id="nuevo-nombre" placeholder="Nombre del producto">
+    <input type="number" id="nuevo-precio" placeholder="Precio">
+    <input type="text" id="nuevo-imagen" placeholder="URL de la imagen">
+    <button onclick="agregarProducto()">Agregar producto</button>
+  </section>
+
+  <section id="registro" class="oculto">
+    <h2>Registro de Cliente</h2>
+    <input type="text" placeholder="Nombre" id="reg-nombre">
+    <input type="email" placeholder="Email" id="reg-email">
+    <input type="password" placeholder="Contraseña" id="reg-pass">
+    <button onclick="registrarCliente()">Registrarse</button>
   </section>
 
   <footer>
