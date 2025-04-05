@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tienda de Productos</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Tienda</h1>
+    <input type="text" id="buscador" placeholder="Buscar..." />
+    <select id="categoria-filtro"></select>
+    <button id="carrito-btn">🛒 (<span id="carrito-contador">0</span>)</button>
+    <button id="admin-btn">⚙️</button>
+  </header>
+  <main id="productos"></main>
+
+  <!-- Carrito Modal -->
+  <div id="carrito-modal" class="modal oculto">
+    <h2>Carrito</h2>
+    <ul id="carrito-lista"></ul><label for="delivery" style="display:block;margin-top:10px;">Cargo por delivery:</label>
+<select id="delivery" style="margin-bottom:10px;">
+  <option value="0">Retiro en tienda (Gs. 0)</option>
+  <option value="5000">Benjamin Aceval (Gs. 5.000)</option>
+  <option value="10000">Cerrito (Gs. 10.000)</option>
+  <option value="10000">Costa (Gs. 10.000)</option>
+  <option value="0">Retiro en tienda (Gs. 0)</option>
+  <option value="5000">Zona cercana (Gs. 5.000)</option>
+  <option value="10000">Zona media (Gs. 10.000)</option>
+  <option value="15000">Zona lejana (Gs. 15.000)</option>
+</select>
+<div id="carrito-total" style="margin-top:10px;font-weight:bold;"></div>
+    <input id="telefono" placeholder="Tu número de WhatsApp" />
+    <input id="ubicacion" placeholder="Ubicación (pega link de Google Maps)" />
+    
+    <button id="enviar-whatsapp">Enviar por WhatsApp</button>
+    <button onclick="cerrarModal('carrito-modal')">Cerrar</button>
+  </div>
+
+  <!-- Admin Modal -->
+  <div id="admin-modal" class="modal oculto">
+    <div id="admin-login">
+      <h2>Acceso Administrador</h2>
+      <input type="password" id="admin-pass" placeholder="Contraseña" />
+      <button onclick="verificarAdmin()">Entrar</button>
+    </div>
+    <div id="admin-panel" class="oculto">
+      <h2>Panel de Administración</h2>
+      <button onclick="abrirAgregarProducto()">Agregar Producto</button>
+      <button onclick="abrirPersonalizacion()">Personalizar Página</button>
+      <button onclick="cerrarModal('admin-modal')">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Formulario Agregar Producto -->
+  <div id="form-agregar-producto" class="modal oculto">
+    <h2>Agregar Producto</h2>
+    <input id="nombre-producto" placeholder="Nombre" />
+    <input type="number" id="precio-producto" placeholder="Precio" />
+    <input id="categoria-producto" placeholder="Categoría" />
+    <input type="file" id="imagen-producto" />
+    <button onclick="guardarProducto()">Guardar</button>
+    <button onclick="cerrarModal('form-agregar-producto')">Cancelar</button>
+  </div>
+
+  <!-- Formulario Personalización -->
+  <div id="form-personalizar" class="modal oculto">
+    <h2>Personalizar Página</h2>
+    <input type="color" id="color-primario" />
+    <select id="fuente">
+      <option value="sans-serif">Sans Serif</option>
+      <option value="serif">Serif</option>
+      <option value="monospace">Monospace</option>
+    </select>
+    <input type="number" id="tamano-fuente" placeholder="Tamaño de fuente (px)" />
+    <input type="file" id="fondo-imagen" />
+    <button onclick="aplicarPersonalizacion()">Aplicar</button>
+    <button onclick="cerrarModal('form-personalizar')">Cancelar</button>
+  </div>
+
+  <script defer src="app.js"></script>
+<div id="mensaje-enviado">¡Pedido enviado!</div>
+</body>
+</html>
