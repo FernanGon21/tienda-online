@@ -1,11 +1,11 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   background: #f4f4f4;
 }
 
 header {
-  background: #333;
+  background: #7C1C1C; /* Bordeaux */
   color: white;
   text-align: center;
   padding: 1em;
@@ -15,6 +15,14 @@ button {
   padding: 0.5em 1em;
   margin: 0.5em;
   cursor: pointer;
+  background-color: #8B5E3C; /* Madera clara */
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #6E4B2F; /* Madera más oscura */
 }
 
 .productos {
@@ -29,15 +37,17 @@ button {
   background: white;
   border: 1px solid #ccc;
   border-radius: 10px;
-  width: 200px;
+  width: 220px;
   text-align: center;
   padding: 1em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .producto img {
   width: 100%;
   height: 150px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 #carrito, #admin-panel, #registro {
@@ -48,18 +58,23 @@ button {
   border-radius: 8px;
 }
 
-#carrito input, #admin-panel input, #registro input {
+#carrito input, #admin-panel input {
   width: 100%;
   padding: 0.5em;
   margin: 0.4em 0;
 }
 
-.oculto {
-  display: none;
+#carrito input, #admin-panel input, #registro input {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+h1, h2 {
+  color: #7C1C1C;
 }
 
 footer {
-  background: #333;
+  background: #7C1C1C; /* Bordeaux */
   color: white;
   text-align: center;
   padding: 1em;

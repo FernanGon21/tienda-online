@@ -71,24 +71,30 @@ function vaciarCarrito() {
 function enviarPedido() {
   const nombre = document.getElementById("nombre").value;
   const telefono = document.getElementById("telefono").value;
-  const ubicacion = document.getElementById("ubicacion").value;
 
-  if (!nombre || !telefono || !ubicacion || carrito.length === 0) {
+  if (!nombre || !telefono || carrito.length === 0) {
     alert("Completa todos los campos y agrega productos");
     return;
   }
 
-  let mensaje = `Hola, soy *${nombre}*.
+  // Obtener ubicación actual
+  navigator.geolocation.getCurrentPosition(function(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+
+    let mensaje = `Hola, soy *${nombre}*.
 Quiero pedir:
 `;
-  carrito.forEach((item, i) => {
-    mensaje += `${i + 1}. ${item.nombre} - $${item.precio}\n`;
+    carrito.forEach((item, i) => {
+      mensaje += `${i + 1}. ${item.nombre} - $${item.precio}\n`;
+    });
+
+    let total = carrito.reduce((sum, p) => sum + p.precio, 0);
+    mensaje += `\nTotal: $${total}\nUbicación: https://www.google.com/maps?q=${lat},${lon}\nContacto: ${telefono}`;
+    const numero = "521XXXXXXXXXX"; // Reemplaza con tu número
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
   });
-  let total = carrito.reduce((sum, p) => sum + p.precio, 0);
-  mensaje += `\nTotal: $${total}\nUbicación: ${ubicacion}\nContacto: ${telefono}`;
-  const numero = "521XXXXXXXXXX"; // Reemplaza con tu número
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
 }
 
 function iniciarSesionAdmin() {
@@ -98,24 +104,6 @@ function iniciarSesionAdmin() {
   } else {
     alert("Clave incorrecta");
   }
-}
-
-function mostrarRegistro() {
-  document.getElementById("registro").classList.toggle("oculto");
-}
-
-function registrarCliente() {
-  const nombre = document.getElementById("reg-nombre").value;
-  const email = document.getElementById("reg-email").value;
-  const pass = document.getElementById("reg-pass").value;
-
-  if (!nombre || !email || !pass) {
-    alert("Completa todos los campos");
-    return;
-  }
-
-  alert("¡Registro exitoso!");
-  document.getElementById("registro").classList.add("oculto");
 }
 
 window.onload = mostrarProductos;
